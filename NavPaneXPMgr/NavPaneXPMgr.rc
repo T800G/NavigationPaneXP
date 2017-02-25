@@ -1,0 +1,84 @@
+#include <windows.h>
+#include <commctrl.h>
+//#include <richedit.h>
+#include <atlres.h>
+#include "resource.h"
+
+
+
+
+//
+// Bitmap resources
+//
+IDB_FOCUS          BITMAP         "focus.bmp"
+
+
+IDB_FULLROW        BITMAP         "favpane.bmp"
+
+
+IDB_HEADERS        BITMAP         "fldrpane.bmp"
+
+
+
+//
+// Dialog resources
+//
+IDD_MAINDLG DIALOGEX 0, 0, 241, 172
+STYLE DS_MODALFRAME | DS_SHELLFONT | WS_CAPTION | WS_POPUP | WS_SYSMENU
+CAPTION "Navigation Pane XP Options"
+FONT 8, "MS Shell Dlg", 0, 0, 1
+{
+    LTEXT           "", IDC_STATICBKG, 5, 5, 230, 143, SS_LEFT
+    GROUPBOX        "Settings", IDC_GROUP1, 12, 9, 216, 124
+    CHECKBOX        "Show Fa&vorites automaticaly", IDC_FAVPANE, 48, 30, 165, 10
+    CHECKBOX        "Show &Folders automaticaly", IDC_FLDRPANE, 48, 64, 165, 10
+    AUTOCHECKBOX    "&Keep focus on file list view", IDC_FOCUS, 48, 98, 165, 10
+    DEFPUSHBUTTON   "OK", IDOK, 75, 153, 50, 14, WS_GROUP
+    PUSHBUTTON      "Cancel", IDCANCEL, 130, 153, 50, 14, WS_GROUP
+    PUSHBUTTON      "&Apply", IDC_APPLY, 185, 153, 50, 14, WS_GROUP
+    LTEXT           "T800 Productions © 2012", IDC_COPYRIGHT, 14, 136, 87, 8, SS_LEFT
+    CONTROL         IDB_FULLROW, IDC_CUSTOM1, WC_STATIC, SS_BITMAP | SS_CENTERIMAGE | SS_REALSIZEIMAGE, 22, 25, 20, 20
+    CONTROL         IDB_HEADERS, IDC_CUSTOM2, WC_STATIC, SS_BITMAP | SS_CENTERIMAGE | SS_REALSIZEIMAGE, 22, 59, 20, 20
+    CONTROL         IDB_FOCUS, IDC_CUSTOM3,   WC_STATIC, SS_BITMAP | SS_CENTERIMAGE | SS_REALSIZEIMAGE, 22, 93, 20, 20
+}
+
+
+
+//
+// Icon resources
+//
+IDI_MAINDLG        ICON           "NavPaneXPMgr.ico"
+
+
+
+//
+// Version Information resources
+//
+VS_VERSION_INFO VERSIONINFO
+    FILEVERSION     1,0,0,6
+    PRODUCTVERSION  1,0,0,6
+    FILEOS          VOS__WINDOWS32
+    FILETYPE        VFT_APP
+    FILESUBTYPE     VFT2_UNKNOWN
+{
+    BLOCK "StringFileInfo"
+    {
+        BLOCK "040904B0"
+        {
+            VALUE "CompanyName", "T800 Productions\0"
+#ifdef _WIN64
+            VALUE "FileDescription", "Navigation Pane XP Manager 64-bit\0"
+#else
+            VALUE "FileDescription", "Navigation Pane XP Manager 32-bit\0"
+#endif
+            VALUE "FileVersion", "1.0.0.6\0"
+            VALUE "LegalCopyright", "T800 Productions © 2012\0"
+            VALUE "ProductName", "Navigation Pane XP\0"
+            VALUE "ProductVersion", "1.0.0.6\0"
+        }
+    }
+    BLOCK "VarFileInfo"
+    {
+        VALUE "Translation", 0x0409, 0x04B0
+    }
+}

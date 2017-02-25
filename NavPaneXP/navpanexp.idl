@@ -1,0 +1,39 @@
+// navpanexp.idl : IDL source for navpanexp.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (navpanexp.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	
+	[
+		object,
+		uuid(E60FCB66-065A-4702-83B0-2348CD5CFA5D),
+		helpstring("IExplorerBHO Interface"),
+		pointer_default(unique)
+	]
+	interface IExplorerBHO : IDispatch
+	{
+	};
+
+[
+	uuid(63AFA0F6-A049-465F-8FC5-F0ADE6E51B70),
+	version(1.0),
+	helpstring("navpanexp 1.0 Type Library")
+]
+library NAVPANEXPLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	
+	[
+		uuid(ED44EF6A-79B7-4D25-92BD-B4A2C81E001D),
+		helpstring("ExplorerBHO Class")
+	]
+	coclass ExplorerBHO
+	{
+		[default] interface IExplorerBHO;
+	};
+};
